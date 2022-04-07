@@ -36,8 +36,21 @@
         The classes are used as examples below and should be removed from the html
         in the finished product.) -->
 
+        <!--
+          var hourMoment = computer gets hour from Moment
+          for timeBlock in all divs with class time-block
+            var hourID = getting ID from timeBlock 
+            if hourMoment is equal to hourID 
+              add present class to timeBlock
+            else if hourMoment is less than hourID
+              add past class to timeBlock
+            else 
+              add future class to timeBlock
+                
+        -->
+  
       <!-- example of a past time block -->
-      <div id="hour-9" class="input-group mb-3 row time-block">
+      <div id="hour-09" class="input-group mb-3 row time-block">
         <div class="col-md-1 hour">9AM</div>
         <textarea class="col-md-10 description"> </textarea>
         <button class="btn saveBtn col-md-1">

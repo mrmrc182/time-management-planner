@@ -1,34 +1,45 @@
 var currentDay = moment();
 $("#currentDay").text(currentDay.format("MMMM Do, YYYY"));
 
-var hourCheck = moment().format("[hour-]H");
-console.log(hourCheck);
 
-hourID = document.getElementById("#hour-[]");
-function checkHour(){
-    for (var i = 0; i < hourID; i++){
-        console.log(hourID)
-}
-}
+var hourMoment = currentDay.format("H");
+
+var timeBlock = $(".time-block");
 
 
-var textBox = document.querySelectorAll(".textarea"); 
-var container = document.querySelector(".container");
+var hourID = timeBlock.attr("#hour-");
+console.log(hourID);
 
-function checkTime(){
-    if (hourCheck < hourID){
-        container.textBox.setAttribute("style, background-color: green;");
-        console.log("working");
-}
-    else if (hourCheck == hourID){
-        container.textBox.setAttribute("style, background-color: red;");
-        console.log("working");
+function timeCheck(){
+    for (var i = 9; i < timeBlock.length; i++){
+    
+    if (parseInt(hourID.slice(-2) < hourMoment)){
+        timeBlock.addClass("past");
     }
-    else {
-        container.textBox.setAttribute("style, background-color: gray;");
-        console.log("working");
+    else if (parseInt(hourID.slice(-2) === hourMoment)){
+        timeBlock.addClass("present");
+    }
+    else{
+        timeBlock.addClass("future");
     }
 }
+}
+timeCheck();
 
-checkHour();
-checkTime();
+
+ 
+// var hourMoment = computer gets hour from Moment
+//           for timeBlock in all divs with class time-block
+//             var hourID = getting ID from timeBlock 
+//             if hourMoment is equal to hourID 
+//               add present class to timeBlock
+//             else if hourMoment is less than hourID
+//               add past class to timeBlock
+//             else 
+//               add future class to timeBlock
+
+
+//take the hour part of IDs out
+//use parseint to turn from a string into a sequence
+
+
