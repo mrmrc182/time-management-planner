@@ -14,19 +14,19 @@ $(".time-block").each(function timeTime(){
     console.log(blockHour);
     for (var i=0; i < blockHour.length; i++)
     if (blockHour < hourMoment){
-        timeBlock[i].addClass(".past");
-        timeBlock[i].removeClass(".present");
-        timeBlock[i].removeClass(".future");
+        timeBlock[i].addClass("past");
+        timeBlock[i].removeClass("present");
+        timeBlock[i].removeClass("future");
     }
     else if (blockHour === hourMoment){
-        timeBlock[i].addClass(".present");
-        timeBlock[i].removeClass(".past");
-        timeBlock[i].removeClass(".future");
+        timeBlock[i].addClass("present");
+        timeBlock[i].removeClass("past");
+        timeBlock[i].removeClass("future");
     }
     else {
-        timeBlock[i].addClass(".future");
-        timeBlock[i].removeClass(".present");
-        timeBlock[i].removeClass(".past");
+        timeBlock[i].addClass("future");
+        timeBlock[i].removeClass("present");
+        timeBlock[i].removeClass("past");
     };
 })
 }
