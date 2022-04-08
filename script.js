@@ -5,28 +5,28 @@ $("#currentDay").text(currentDay.format("MMMM Do, YYYY"));
 
 function hourUpdate (){
 var timeBlock = $(".time-block");
-var hourMoment = currentDay.format("H");
+var hourMoment = parseInt(currentDay.format("H"));
 console.log(hourMoment);
 $(".time-block").each(function timeTime(){
     var blockHour = parseInt(
-        $(".time-block").attr("id")
+        $(this).attr("id")
     );
     console.log(blockHour);
-    for (var i=0; i < blockHour.length; i++)
+    // for (var i=0; i < blockHour.length; i++)
     if (blockHour < hourMoment){
-        timeBlock[i].addClass("past");
-        timeBlock[i].removeClass("present");
-        timeBlock[i].removeClass("future");
+        $(this).addClass("past");
+        // $(this).removeClass("present");
+        // $(this).removeClass("future");
     }
     else if (blockHour === hourMoment){
-        timeBlock[i].addClass("present");
-        timeBlock[i].removeClass("past");
-        timeBlock[i].removeClass("future");
+        $(this).addClass("present");
+        // $(this).removeClass("past");
+        // $(this).removeClass("future");
     }
     else {
-        timeBlock[i].addClass("future");
-        timeBlock[i].removeClass("present");
-        timeBlock[i].removeClass("past");
+        $(this).addClass("future");
+        // $(this).removeClass("present");
+        // $(this).removeClass("past");
     };
 })
 }
