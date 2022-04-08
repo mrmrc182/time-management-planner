@@ -12,21 +12,14 @@ $(".time-block").each(function timeTime(){
         $(this).attr("id")
     );
     console.log(blockHour);
-    // for (var i=0; i < blockHour.length; i++)
     if (blockHour < hourMoment){
         $(this).addClass("past");
-        // $(this).removeClass("present");
-        // $(this).removeClass("future");
     }
     else if (blockHour === hourMoment){
         $(this).addClass("present");
-        // $(this).removeClass("past");
-        // $(this).removeClass("future");
     }
     else {
         $(this).addClass("future");
-        // $(this).removeClass("present");
-        // $(this).removeClass("past");
     };
 })
 }
@@ -61,10 +54,14 @@ if (!storageAttempt){
     return;
 }
 else{
-plannerValue.value = storageAttempt.plannerValue;
+    $(".description").val(storageAttempt.plannerValue);
+    $(`${storageAttempt.plannerHour}`).value(plannerValue);
 }
 }
 grabStorage();
+console.log(storageAttempt);
+console.log(plannerValue);
+console.log(storageAttempt.plannerValue);
 
 
 
