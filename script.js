@@ -48,20 +48,20 @@ saveBtn.on("click", function () {
 })
 
 //attempt at displaying it on the page
-function grabStorage() {
-var storageAttempt = JSON.parse(localStorage.getItem("storageAttempt"));
-if (!storageAttempt){
-    return;
-}
-else{
-    $(".description").val(storageAttempt.plannerValue);
-    $(`${storageAttempt.plannerHour}`).value(plannerValue);
-}
-}
-grabStorage();
-console.log(storageAttempt);
-console.log(plannerValue);
-console.log(storageAttempt.plannerValue);
+// function grabStorage() {
+// var storageAttempt = JSON.parse(localStorage.getItem("storageAttempt"));
+// if (!storageAttempt){
+//     return;
+// }
+// else{
+//     $(".description").val(storageAttempt.plannerValue);
+//     $(`${storageAttempt.plannerHour}`).value(plannerValue);
+// }
+// }
+// grabStorage();
+// console.log(storageAttempt);
+// console.log(plannerValue);
+// console.log(storageAttempt.plannerValue);
 
 
 
