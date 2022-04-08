@@ -1,7 +1,7 @@
 var currentDay = moment();
 $("#currentDay").text(currentDay.format("MMMM Do, YYYY"));
 
-
+// keepPlan();
 
 function hourUpdate (){
 var timeBlock = $(".time-block");
@@ -32,54 +32,37 @@ $(".time-block").each(function timeTime(){
 }
 
 hourUpdate();
-// var containerAtt = $(".container");
-// $(".time-block").each(function);
-// var hourID = containerAtt.children("div").attr("id");
-// parsedHour = parseInt(hourID - 2))
 
-// for (var i = 9; i < containerAtt.length; i++) 
+var saveBtn = $(".saveBtn")
 
+    var button = $(this);
+    var plannerValue = $(".description").val();
+    var plannerHour = button.closest(".time-block").attr("id");
 
+saveBtn.on("click", function () {
+    var button = $(this);
+    var plannerValue = $(".description").val();
+    var plannerHour = button.closest(".time-block").attr("id");
+    if (!plannerHour || !plannerValue){
+        return;
+    }
+    var storageAttempt = {
+        plannerHour: plannerHour,
+        plannerValue: plannerValue,
+    }
+    localStorage.setItem("storageAttempt", JSON.stringify(storageAttempt));
+})
 
-
-//           for timeBlock in all divs with class time-block
-//             var hourID = getting ID from timeBlock 
-//             if hourMoment is equal to hourID 
-//               add present class to timeBlock
-//             else if hourMoment is less than hourID
-//               add past class to timeBlock
-//             else 
-//               add future class to timeBlock
-//get the number from the ID
-//parse it into a string
-
-// var timeBlock = $(".time-block");
-// var hourLoop = $(".time-block").attr("id".value);
-// var hourID = parseInt(slice(hourLoop - 2));
-// console.log(hourID);
-
-// timeBlock.each (function timeCheck(el){
-    
-
-//     for (var i = 9; i < timeBlock.length; i++)
-
-//     if (hourID[i] < hourMoment) {
-//         timeBlock[i].addClass("past")
-//     }
-//     else if (hourID[i] === hourMoment) {
-//         timeBlock[i].addClass("present");
-//     }
-//     else {
-//         timeBlock[i].addClass("future");
-//     }
-// })
-
-// timeCheck(el);
-
- 
-// var hourMoment = computer gets hour from Moment
+if (storageAttempt) {
+var storageAttempt = JSON.parse(localStorage.getItem("storageAttempt"));
+plannerValue.val = storageAttempt.plannerValue;
+}
 
 
 
-//take the hour part of IDs out
-//use parseint to turn from a string into a sequence
+// function keepPlan(){
+// // want to retrieve item from local storage and display it on its proper textbox
+// var inputCheck = localStorage.getItem("storageAttempt");
+// console.log(inputCheck);
+// $(".description").text() === inputCheck; 
+// }
