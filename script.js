@@ -1,7 +1,7 @@
 var currentDay = moment();
 $("#currentDay").text(currentDay.format("MMMM Do, YYYY"));
 
-// keepPlan();
+
 
 function hourUpdate (){
 var timeBlock = $(".time-block");
@@ -33,6 +33,7 @@ $(".time-block").each(function timeTime(){
 
 hourUpdate();
 
+// this is what i put for storing the inputs in localstorage, and my attempt at displaying it on refresh
 var saveBtn = $(".saveBtn")
 
     var button = $(this);
@@ -53,16 +54,19 @@ saveBtn.on("click", function () {
     localStorage.setItem("storageAttempt", JSON.stringify(storageAttempt));
 })
 
-if (storageAttempt) {
+//attempt at displaying it on the page
+function grabStorage() {
 var storageAttempt = JSON.parse(localStorage.getItem("storageAttempt"));
-plannerValue.val = storageAttempt.plannerValue;
+if (!storageAttempt){
+    return;
 }
+else{
+plannerValue.value = storageAttempt.plannerValue;
+}
+}
+grabStorage();
 
 
 
-// function keepPlan(){
 // // want to retrieve item from local storage and display it on its proper textbox
 // var inputCheck = localStorage.getItem("storageAttempt");
-// console.log(inputCheck);
-// $(".description").text() === inputCheck; 
-// }
