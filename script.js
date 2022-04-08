@@ -2,32 +2,44 @@ var currentDay = moment();
 $("#currentDay").text(currentDay.format("MMMM Do, YYYY"));
 
 
+
+function hourUpdate (){
+var timeBlock = $(".time-block");
 var hourMoment = currentDay.format("H");
 console.log(hourMoment);
-
-
-var containerAtt = $(".container");
-timeBlock = $(".time-block");
-var hourID = containerAtt.children("div").attr("id");
-parsedHour = parseInt(hourID - 2))
-
-for (var i = 9; i < containerAtt.length; i++) 
-
-if (hourID[i] < hourMoment){
-    timeBlock[i].addClass(".past");
-    timeBlock[i].removeClass(".present");
-    timeBlock[i].removeClass(".future");
+$(".time-block").each(function timeTime(){
+    var blockHour = parseInt(
+        $(".time-block").attr("id")
+    );
+    console.log(blockHour);
+    for (var i=0; i < blockHour.length; i++)
+    if (blockHour < hourMoment){
+        timeBlock[i].addClass(".past");
+        timeBlock[i].removeClass(".present");
+        timeBlock[i].removeClass(".future");
+    }
+    else if (blockHour === hourMoment){
+        timeBlock[i].addClass(".present");
+        timeBlock[i].removeClass(".past");
+        timeBlock[i].removeClass(".future");
+    }
+    else {
+        timeBlock[i].addClass(".future");
+        timeBlock[i].removeClass(".present");
+        timeBlock[i].removeClass(".past");
+    };
+})
 }
-else if (hourID[i] === hourMoment){
-    timeBlock[i].addClass(".present");
-    timeBlock[i].removeClass(".past");
-    timeBlock[i].removeClass(".future");
-}
-else {
-    timeBlock[i].addClass(".future");
-    timeBlock[i].removeClass(".present");
-    timeBlock[i].removeClass(".past");
-}
+
+hourUpdate();
+// var containerAtt = $(".container");
+// $(".time-block").each(function);
+// var hourID = containerAtt.children("div").attr("id");
+// parsedHour = parseInt(hourID - 2))
+
+// for (var i = 9; i < containerAtt.length; i++) 
+
+
 
 
 //           for timeBlock in all divs with class time-block
